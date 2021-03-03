@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head></h:head>
+
+<h:body>
+    <h:form id="calculadora_form">
+        <h1 style="font-family: 'Arial Rounded MT Bold',sans-serif">Central Tendency Measures Calculator</h1>
+        <p style="font-family:'Arial',sans-serif">Insert the values separated by ;</p>
+        <p:inputText id = "numeros" type = "text" binding="#{numeros}"><br/></p:inputText>
+        <br/>
+        <p:outputLabel style="font-family:'Arial',sans-serif" value="Mean: #{BackingBean.getMean()}"><br/></p:outputLabel>
+        <p:outputLabel style="display: none" value="Mode: #{BackingBean.getMode()}"><br/></p:outputLabel>
+        <p:outputLabel style="font-family:'Arial',sans-serif" value="Standard Deviation: #{BackingBean.getDeviation()}"><br/></p:outputLabel>
+        <p:outputLabel style="font-family:'Arial',sans-serif" value="Variance: #{BackingBean.getVariance()}"><br/></p:outputLabel>
+        <p:commandButton style="font-family:'Arial',sans-serif" value = "Calcular" update="calculadora_form" actionListener="#{BackingBean.calculate(numeros.value)}"><br/></p:commandButton>
+        <p:commandButton style="font-family:'Arial',sans-serif" value = "Reiniciar" update="calculadora_form" actionListener="#{BackingBean.restart()}"><br/></p:commandButton>
+        <p:dataTable var="ingresados" value="#{BackingBean.getAnteriores()}">
+            <p:column headerText="Anteriores">
+                <h:outputText value="#{ingresados}"/>
+            </p:column>
+        </p:dataTable>
+    </h:form>
+
+</h:body>
+
+
+</html>
