@@ -26,10 +26,10 @@ public class Servlet extends HttpServlet {
         try {
             Optional<String> optName = Optional.ofNullable(req.getParameter("id"));
             int id = optName.isPresent() && !optName.get().isEmpty() ? Integer.parseInt(optName.get()) : null;
-            todoList.add(Service.getTodo(id));
+            todoList.add(ServiceGson.getTodo(id));
             resp.setStatus(HttpServletResponse.SC_OK);
             resp.setContentType("text/html");
-            responseWriter.write(Service.todosToHTMLTable(todoList));
+            responseWriter.write(ServiceGson.todosToHTMLTable(todoList));
         }
         catch (MalformedURLException e){
             resp.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
@@ -53,10 +53,10 @@ public class Servlet extends HttpServlet {
         try {
             Optional<String> optName = Optional.ofNullable(req.getParameter("id"));
             int id = optName.isPresent() && !optName.get().isEmpty() ? Integer.parseInt(optName.get()) : null;
-            todoList.add(Service.getTodo(id));
+            todoList.add(ServiceGson.getTodo(id));
             resp.setContentType("text/html");
             resp.setStatus(HttpServletResponse.SC_OK);
-            responseWriter.write(Service.todosToHTMLTable(todoList));
+            responseWriter.write(ServiceGson.todosToHTMLTable(todoList));
         }
         catch (MalformedURLException e){
             resp.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);

@@ -12,7 +12,7 @@ import com.google.gson.Gson;
 
 import edu.eci.cvds.servlet.model.Todo;
 
-public class Service {
+public class ServiceGson {
 
     public static Todo getTodo(int id) throws MalformedURLException, IOException {
         URL urldemo = new URL("https://jsonplaceholder.typicode.com/todos/" + id);
