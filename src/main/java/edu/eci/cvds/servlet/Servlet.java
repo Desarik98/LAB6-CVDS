@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.Writer;
 import java.net.MalformedURLException;
-import java.nio.charset.MalformedInputException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -20,7 +19,6 @@ import java.util.Optional;
 )
 
 public class Servlet extends HttpServlet {
-    static final long serialVersionUID = 35L;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Todo> todoList = new ArrayList<Todo>();

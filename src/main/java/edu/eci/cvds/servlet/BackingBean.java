@@ -1,11 +1,10 @@
 package edu.eci.cvds.servlet;
 
-import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import java.util.ArrayList;
 @ManagedBean(name = "BackingBean")
-@ApplicationScoped
+@SessionScoped
 public class BackingBean {
     private double mean;
     private double mode;
@@ -34,7 +33,10 @@ public class BackingBean {
     }
 
     public double calculateMode(ArrayList<Integer> data){
-        int maxValue = 0, maxCount = 0, i, j;
+        int maxValue = 0;
+        int maxCount = 0;
+        int i = 0;
+        int j = 0;
         for (i = 0; i < data.size(); i++) {
             int count = 0;
             for (j = 0; j < data.size(); j++) {
